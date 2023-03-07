@@ -1,5 +1,10 @@
 module.exports = {
-  publicPath: '/news-app/'
+  publicPath: '/news-app/',
+
+  modules: [
+    // https://go.nuxtjs.dev/bootstrap
+    'bootstrap-vue/nuxt',
+  ],
 }
 
 export default {
@@ -14,11 +19,11 @@ export default {
   head: {
     title: 'News-app',
     htmlAttrs: {
-      lang: 'en',
+      lang: 'ru',
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
@@ -26,7 +31,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ["~assets/scss/colors.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -46,7 +51,12 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    "@nuxtjs/style-resources",
   ],
+
+  styleResources: {
+    scss: ["./assets/scss/*.scss"]
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
